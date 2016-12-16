@@ -1,5 +1,0 @@
-{
-	"BlankMergeField" : {
-		"function": "GenerateIMBMTCDE_0703Form"
-	}
-}

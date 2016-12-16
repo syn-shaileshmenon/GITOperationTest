@@ -1,6 +1,0 @@
-{
-	"BlankMergeField":
-	{
-		"jsonPath":"$.SurplusLineStateText"
-	}
-}
