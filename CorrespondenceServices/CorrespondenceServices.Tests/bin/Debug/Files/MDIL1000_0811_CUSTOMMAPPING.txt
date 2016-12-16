@@ -1,0 +1,10 @@
+{
+	"MDIL1000" : 
+		{
+			"function" : "GenerateMDIL1000Form"
+		}, 
+	BlankMergeField_26 : 
+		{
+			"jsonPath":"$.SurplusLineStateText"
+		}
+}

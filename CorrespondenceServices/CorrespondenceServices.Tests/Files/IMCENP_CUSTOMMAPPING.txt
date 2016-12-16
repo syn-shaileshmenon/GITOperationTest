@@ -1,0 +1,119 @@
+﻿{
+    "BlankMergeField": {
+        "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].RollUp.Premium",
+        "format": "{0:n0}"
+    },
+    "BlankMergeField_2": { "constant": "See MDIL 1000" },
+    "BlankMergeField_5": { "constant": "See MDIL 1000" },
+    "BlankMergeField_6": { "constant": "See MDIL 1000" },
+    "BlankMergeField_7": { "constant": "See MDIL 1000" },
+    "BlankMergeField_8": { "constant": "See MDIL 1000" },
+    "BlankMergeField_10": {
+        "function": "JOIN",
+        "params": [
+            { "constant": ";" },
+            {
+                "function": "IFNOTNULLEMPTYWHITESPACE",
+                "params": [
+                    { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='SE' && @.TotalInsuredValue > 0)].TotalInsuredValue" },
+                    {
+                        "function": "STRINGFORMAT",
+                        "params": [
+                            { "constant": "Scheduled equipment: {0}" },
+                            {
+                                "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='SE')].ApplicableRate",
+                                "format": "{0:C2}"
+                            }
+                        ]
+                    },
+                    { "constant": "" }
+                ]
+            },
+            {
+                "function": "IFNOTNULLEMPTYWHITESPACE",
+                "params": [
+                    { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='MUT' && @.TotalInsuredValue > 0)].TotalInsuredValue" },
+                    {
+                        "function": "STRINGFORMAT",
+                        "params": [
+                            { "constant": "Miscellaneous unscheduled tools: {0}" },
+                            {
+                                "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='MUT')].ApplicableRate",
+                                "format": "{0:C2}"
+                            }
+                        ]
+                    },
+                    { "constant": "" }
+                ]
+            },
+            {
+                "function": "IFNOTNULLEMPTYWHITESPACE",
+                "params": [
+                    { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ET' && @.TotalInsuredValue > 0)].TotalInsuredValue" },
+                    {
+                        "function": "STRINGFORMAT",
+                        "params": [
+                            { "constant": "Employee�s tools: {0}" },
+                            {
+                                "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ET')].ApplicableRate",
+                                "format": "{0:C2}"
+                            }
+                        ]
+                    },
+                    { "constant": "" }
+                ]
+            },
+            {
+                "function": "IFNOTNULLEMPTYWHITESPACE",
+                "params": [
+                    { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ELRO' && @.TotalInsuredValue > 0)].TotalInsuredValue" },
+                    {
+                        "function": "STRINGFORMAT",
+                        "params": [
+                            { "constant": "Equipment leased or rented from others: {0}" },
+                            {
+                                "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ELRO')].ApplicableRate",
+                                "format": "{0:C2}"
+                            }
+                        ]
+                    },
+                    { "constant": "" }
+                ]
+            }
+        ]
+    },
+    "BlankMergeField_11": {
+        "function": "SUM",
+        "format": "{0:n0}",
+        "params": [
+            { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ET')].TotalInsuredValue" },
+            { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='ELRO')].TotalInsuredValue" },
+            { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='MUT')].TotalInsuredValue" },
+            { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='SE')].TotalInsuredValue" }
+        ]
+    },
+    "BlankMergeField_12": {
+        "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].FireLossDeductible.Amount",
+        "format": "{0:n0}"
+    },
+    "BlankMergeField_13": {
+        "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].TheftDeductible.Amount",
+        "format": "{0:n0}"
+    },
+    "BlankMergeField_14": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].Items[?(@.ItemCode=='MUT' && @.TotalInsuredValue > 0)]" },
+            {
+                "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].MiscToolsDeductible.Amount",
+                "format": "{0:n0}"
+            },
+            { "constant": "N/A" }
+        ]
+    },
+    "BlankMergeField_15": {
+        "jsonPath": "$.ImLine.RiskUnits[?(@.ClassCode == '205')].PerOccurrenceDeductible.Amount",
+        "format": "{0:n0}"
+    },
+    "AgentName2": { "constant": "" }
+}

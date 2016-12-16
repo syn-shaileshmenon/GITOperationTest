@@ -1,0 +1,216 @@
+{
+    "BlankMergeField": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HNAL' && @.IsSelected == true)]" },
+            {
+                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'HAL')].Code",
+                "format": "{0:n0}",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitLevelId" }
+                ]
+            },
+            {
+                "function": "IFNOTNULL",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HAL' && @.IsSelected == true)]" },
+                    {
+                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'HAL')].Code",
+                        "format": "{0:n0}",
+                        "params": [
+                            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].LimitLevelId" }
+                        ]
+                    },
+                    {
+                        "constant": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "BlankMergeField_1": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HNAL' && @.IsSelected == true)]" },
+            {
+                "function": "IFTRUE",
+                "params": [
+                    {
+                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].IsIncluded"
+                    },
+                    {
+                        "constant": "Included"
+                    },
+                    {
+                        "function": "IFNOTNULL",
+                        "params": [
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].AdjustedPremium"
+                            },
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].AdjustedPremium",
+                                "format": "{0:n0}"
+                            },
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].Premium",
+                                "format": "{0:n0}"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "function": "IFNOTNULL",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HAL' && @.IsSelected == true)]" },
+                    {
+                        "function": "IFTRUE",
+                        "params": [
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].IsIncluded"
+                            },
+                            {
+                                "constant": "Included"
+                            },
+                            {
+                                "function": "IFNOTNULL",
+                                "params": [
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].AdjustedPremium"
+                                    },
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].AdjustedPremium",
+                                        "format": "{0:n0}"
+                                    },
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].Premium",
+                                        "format": "{0:n0}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "constant": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "BlankMergeField_2": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HNAL' && @.IsSelected == true)]" },
+            {
+                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'NAL')].Code",
+                "format": "{0:n0}",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitLevelId" }
+                ]
+            },
+            {
+                "function": "IFNOTNULL",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='NAL' && @.IsSelected == true)]" },
+                    {
+                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'NAL')].Code",
+                        "format": "{0:n0}",
+                        "params": [
+                            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].LimitLevelId" }
+                        ]
+                    },
+                    {
+                        "constant": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "BlankMergeField_3": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HNAL' && @.IsSelected == true)]" },
+            {
+                "constant":  "Included"
+            },
+            {
+                "function": "IFNOTNULL",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='NAL' && @.IsSelected == true)]" },
+                    {
+                        "function": "IFTRUE",
+                        "params": [
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].IsIncluded"
+                            },
+                            {
+                                "constant": "Included"
+                            },
+                            {
+                                "function": "IFNOTNULL",
+                                "params": [
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].AdjustedPremium"
+                                    },
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].AdjustedPremium",
+                                        "format": "{0:n0}"
+                                    },
+                                    {
+                                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].Premium",
+                                        "format": "{0:n0}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "constant": ""
+                    }
+                ]
+            }
+        ]
+    },
+    "BlankMergeField_4": {
+        "function": "IFNOTNULL",
+        "params": [
+            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HNAL' && @.IsSelected == true)]" },
+            {
+                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'A')].Code",
+                "format": "{0:n0}",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HNAL')].LimitLevelId" }
+                ]
+            },
+            {
+                "function": "IFNOTNULL",
+                "params": [
+                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='HAL' && @.IsSelected == true)]" },
+                    {
+                        "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'A')].Code",
+                        "format": "{0:n0}",
+                        "params": [
+                            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'HAL')].LimitLevelId" }
+                        ]
+                    },
+                    {
+                        "function": "IFNOTNULL",
+                        "params": [
+                            { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code=='NAL' && @.IsSelected == true)]" },
+                            {
+                                "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'A')].Code",
+                                "format": "{0:n0}",
+                                "params": [
+                                    { "jsonPath": "$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'NAL')].LimitLevelId" }
+                                ]
+                            },
+                            {
+                                "constant": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

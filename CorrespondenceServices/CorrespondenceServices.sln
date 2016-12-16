@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrespondenceServices", "CorrespondenceServices\CorrespondenceServices.csproj", "{E7BB7A6A-3DDB-428D-94DC-97472017D86E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorrespondenceServices.Tests", "CorrespondenceServices.Tests\CorrespondenceServices.Tests.csproj", "{D21CA015-4BC7-4334-8B9A-7EAA29155F51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentGenerator", "DocumentGenerator\DocumentGenerator.csproj", "{BB3D6135-C36E-4721-980A-0545E6773F48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3DA40ED7-6DF2-467D-AC61-839E0EA2860A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Beta|Any CPU = Beta|Any CPU
+		CI|Any CPU = CI|Any CPU
+		CIInt|Any CPU = CIInt|Any CPU
+		CIProd|Any CPU = CIProd|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
+		Integration|Any CPU = Integration|Any CPU
+		NextMajor|Any CPU = NextMajor|Any CPU
+		NextMajorDev|Any CPU = NextMajorDev|Any CPU
+		Release|Any CPU = Release|Any CPU
+		UAT|Any CPU = UAT|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CI|Any CPU.ActiveCfg = CI|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CI|Any CPU.Build.0 = CI|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CIInt|Any CPU.ActiveCfg = CIInt|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CIInt|Any CPU.Build.0 = CIInt|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CIProd|Any CPU.ActiveCfg = CIProd|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.CIProd|Any CPU.Build.0 = CIProd|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Development|Any CPU.Build.0 = Development|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Integration|Any CPU.ActiveCfg = Integration|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Integration|Any CPU.Build.0 = Integration|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.NextMajor|Any CPU.ActiveCfg = NextMajor|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.NextMajor|Any CPU.Build.0 = NextMajor|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.NextMajorDev|Any CPU.ActiveCfg = NextMajorDev|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.NextMajorDev|Any CPU.Build.0 = NextMajorDev|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.UAT|Any CPU.ActiveCfg = UAT|Any CPU
+		{E7BB7A6A-3DDB-428D-94DC-97472017D86E}.UAT|Any CPU.Build.0 = UAT|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CI|Any CPU.ActiveCfg = CI|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CI|Any CPU.Build.0 = CI|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CIInt|Any CPU.ActiveCfg = CIInt|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CIInt|Any CPU.Build.0 = CIInt|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CIProd|Any CPU.ActiveCfg = CIProd|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.CIProd|Any CPU.Build.0 = CIProd|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Development|Any CPU.Build.0 = Development|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Integration|Any CPU.ActiveCfg = Integration|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.NextMajor|Any CPU.ActiveCfg = NextMajor|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.NextMajor|Any CPU.Build.0 = NextMajor|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.NextMajorDev|Any CPU.ActiveCfg = NextMajorDev|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.NextMajorDev|Any CPU.Build.0 = NextMajorDev|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21CA015-4BC7-4334-8B9A-7EAA29155F51}.UAT|Any CPU.ActiveCfg = UAT|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Beta|Any CPU.ActiveCfg = Beta|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Beta|Any CPU.Build.0 = Beta|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CI|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CI|Any CPU.Build.0 = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CIInt|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CIInt|Any CPU.Build.0 = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CIProd|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.CIProd|Any CPU.Build.0 = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Integration|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Integration|Any CPU.Build.0 = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.NextMajor|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.NextMajor|Any CPU.Build.0 = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.NextMajorDev|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.NextMajorDev|Any CPU.Build.0 = Debug|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.UAT|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3D6135-C36E-4721-980A-0545E6773F48}.UAT|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://stwebdev30:8080/tfs/webteam
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CorrespondenceServices.Tests\\CorrespondenceServices.Tests.csproj
+		SccProjectName1 = CorrespondenceServices.Tests
+		SccLocalPath1 = CorrespondenceServices.Tests
+		SccProjectUniqueName2 = CorrespondenceServices\\CorrespondenceServices.csproj
+		SccProjectName2 = CorrespondenceServices
+		SccLocalPath2 = CorrespondenceServices
+		SccProjectUniqueName3 = DocumentGenerator\\DocumentGenerator.csproj
+		SccProjectName3 = DocumentGenerator
+		SccLocalPath3 = DocumentGenerator
+	EndGlobalSection
+EndGlobal

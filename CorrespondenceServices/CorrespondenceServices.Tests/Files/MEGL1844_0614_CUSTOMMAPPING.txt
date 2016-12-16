@@ -1,0 +1,10 @@
+{
+	"BlankMergeField":{
+		"jsonPath":"$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'LK')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'EO')].Code",
+		"format":"{0:n0}",
+		"params":[{"jsonPath":"$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'LK')].LimitLevelId"}]},
+	"BlankMergeField_1":{
+		"jsonPath":"$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'LK')].LimitOptions[?(@.Id == '{0}')].Limits[?(@.LimitTypeCode == 'A')].Code",
+		"format":"{0:n0}",
+		"params":[{"jsonPath":"$.GlLine.RollUp.OptionalCoverages[?(@.Code == 'LK')].LimitLevelId"}]}
+}

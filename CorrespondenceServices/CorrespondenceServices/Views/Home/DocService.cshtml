@@ -1,0 +1,316 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test page for DocService with Aspose WORDS</title>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $(function () {
+                $(document).on('click', '#asyncSave', function (e) {
+                    e.preventDefault();
+                    // loop through form fields and build an dictionary-like object of name:value
+                    var args = [];
+                    $('.form').find('input,select >option:selected,textarea,:checkbox').each(function () {
+                        if (this.id.toLowerCase()) {
+                            var name, value;
+                            switch (this.nodeName.toLowerCase()) {
+                                case 'input':
+                                    if ($(this).is(':checkbox')) {
+                                        name = this.id; value = this.checked;
+                                    }
+                                    else {
+                                        name = this.id; value = this.value;
+                                    }
+                                    break;
+                                case 'textarea':
+                                    name = this.id; value = this.value;
+                                    break;
+                                case 'option':
+                                    var par = $(this).parent()[0];
+                                    name = par.id; value = this.value;
+                                    break;
+                                case 'checkbox':
+                                    debugger;
+                                    name = this.id; value = this.checked;
+                                    break;
+                            }
+                            args.push({ name: name, value: value });
+                        }
+                    });
+                    debugger;
+                    // build JSON object for async request
+                    var data = { FileName: $('#fullName').val() + ' -review', FileFormat: $('#saveAsFormat option:selected').val(), NamedParameters: args };
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/SaveDocument',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (d) {
+                            window.location.href = '/api/GetDocument/'+data.FileFormat;	// this will trigger the download
+                        }
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 900px;
+            font-family: Calibri;
+            font-size: 11pt;
+            color: #363636;
+            margin: 10px auto;
+        }
+
+        .heading {
+            color: #22cc64;
+            border-bottom: 2px inset #22cc64;
+            margin-bottom: 15px;
+            padding: 5px 10px;
+        }
+
+            .heading h2, h4 {
+                margin: 3px;
+            }
+
+            .heading h2 {
+                font-weight: normal;
+            }
+
+            .heading h4 {
+                font-style: italic;
+                font-weight: normal;
+            }
+
+        .upldtxt {
+            display: block;
+            margin-top: 3px;
+        }
+
+        .form {
+            border-color: #a1aed1;
+            border-style: groove;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 8px 0;
+            padding: 5px 0 0 0;
+            position: relative;
+        }
+
+        .inputrow {
+            margin: 10px 0;
+            padding: 8px 15px 12px;
+            border-left: 2px groove #d59595;
+            border-right: 2px groove #d59595;
+            border-radius: 5px;
+            width: 365px;
+        }
+
+            .inputrow:last-child {
+                margin-bottom: 20px;
+            }
+
+        .form label {
+            font-size: 12pt;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form input {
+            padding: 3px 5px;
+        }
+
+        .form [type=date] {
+            padding-left: 10px;
+            text-align: left;
+        }
+
+        .form input, .form textarea {
+            width: 350px;
+            border-style: solid;
+            border-color: #ffc473 #ffc473 #f59714 #f59714;
+            border-width: 1px;
+        }
+
+        .form textarea {
+            height: 80px;
+        }
+
+        .form .info {
+            width: 425px;
+            height: 90%;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            border-color: #a1aed1;
+            border-style: groove;
+            border-width: 2px 0 0 2px;
+            border-radius: 5px 0 0 0;
+            padding: 10px;
+        }
+
+        .info .desc {
+            background: #b0b8c7;
+            font-size: 13pt;
+            color: #fff;
+            padding: 5px 8px;
+            text-shadow: 0px 0px 4px #363636;
+            border-radius: 5px;
+        }
+
+        .info .imgprv {
+            position: absolute;
+            bottom: 10px;
+        }
+
+        .buttonbar {
+            margin-top: 20px;
+            margin-right: 10px;
+            float: right;
+            clear: both;
+        }
+
+            .buttonbar input, .buttonbar button {
+                color: #333;
+                cursor: pointer;
+                font-weight: bold;
+                background-size: auto 300%;
+                background-position: 0 50%;
+                border-style: outset;
+                border-width: 2px;
+                border-radius: 7px;
+                height: 30px;
+                transition: background-position linear .1s;
+            }
+
+            .buttonbar input {
+                border-color: #8bc690;
+                /* bg gradient */
+                background-image: #b5dba2; /* Old browsers */
+                background-image: -moz-linear-gradient(top, #b5dba2 20%, #78af66 82%); /* FF3.6+ */
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%,#b5dba2), color-stop(82%,#78af66)); /* Chrome,Safari4+ */
+                background-image: -webkit-linear-gradient(top, #b5dba2 20%,#78af66 82%); /* Chrome10+,Safari5.1+ */
+                background-image: -o-linear-gradient(top, #b5dba2 20%,#78af66 82%); /* Opera 11.10+ */
+                background-image: -ms-linear-gradient(top, #b5dba2 20%,#78af66 82%); /* IE10+ */
+                background-image: linear-gradient(to bottom, #b5dba2 20%,#78af66 82%); /* W3C */
+            }
+
+            .buttonbar button {
+                border-color: #FFC58C;
+                /* bg gradient */
+                background-image: #ffb76b; /* Old browsers */
+                background-image: -moz-linear-gradient(top, #ffb76b 31%, #ff7f04 86%); /* FF3.6+ */
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(31%,#ffb76b), color-stop(86%,#ff7f04)); /* Chrome,Safari4+ */
+                background-image: -webkit-linear-gradient(top, #ffb76b 31%,#ff7f04 86%); /* Chrome10+,Safari5.1+ */
+                background-image: -o-linear-gradient(top, #ffb76b 31%,#ff7f04 86%); /* Opera 11.10+ */
+                background-image: -ms-linear-gradient(top, #ffb76b 31%,#ff7f04 86%); /* IE10+ */
+                background-image: linear-gradient(to bottom, #ffb76b 31%,#ff7f04 86%); /* W3C */
+            }
+
+                .buttonbar input:hover, .buttonbar button:hover {
+                    background-position: 0 0;
+                }
+
+                .buttonbar input:active, .buttonbar button:active {
+                    background-position: 100%;
+                }
+
+                .buttonbar button:active {
+                    background-image: #FF6100;
+                }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="heading">
+            <h2>Employee Review Form</h2>
+            <h4>Test Open XML stuff</h4>
+        </div>
+        <div class="form">
+            <div class="inputrow name">
+                <label>Employee Full Name</label>
+                <input type="text" id="fullName" />
+            </div>
+            <div class="inputrow jobtitle">
+                <label>Job Title</label>
+                <input type="text" id="jobTitle" />
+            </div>
+            <div class="inputrow employedDate">
+                <label>Employment Date</label>
+                <input type="date" id="employedDate" />
+            </div>
+            <div class="inputrow jobDescription">
+                <label>Provide a brief job description for the employee:</label>
+                <textarea id="jobDescription"></textarea>
+            </div>
+            @*<div class="inputrow personImage">
+                <label>Can you please provide a bio pic for the employee?</label>
+                <div>
+                    <asp:AsyncFileUpload id="FileUpload1"
+                                         CompleteBackColor="White" Width="350px" UploaderStyle="Traditional" UploadingBackColor="#CCFFFF"
+                                         Throbberid="loadingImg" OnUploadedComplete="UploadFile" OnClientUploadComplete="_panelRefresh" />
+                    <label id="loadingImg" class="throbber">
+                        <img src="images/loading-small.gif" />
+                    </label>
+                    <asp:UpdatePanel id="updatePanel1" ChildrenAsTriggers="true">
+                        <contenttemplate>
+                            <asp:Button id="panelUpdate" OnClick="panelUpdate_Click" Style="display: none;" />
+                            <asp:Label id="lblUpload" class="upldtxt" Text=""></asp:Label>
+                            <asp:HiddenField id="personImage" Value="" />
+                        </contenttemplate>
+                        <triggers>
+                            <asp:asyncpostbacktrigger controlid="panelUpdate" eventname="Click" />
+                        </triggers>
+                    </asp:UpdatePanel>
+                </div>
+            </div>*@
+            <div class="inputrow">
+                <label>Satisfaction level with individual's performance</label>
+                <select id="satisfactionList">
+                    <option value="Very Satisfied">Very Satisfied</option>
+                    <option value="Satisfied">Satisfied</option>
+                    <option value="Indifferent">Indifferent</option>
+                    <option value="Disappointed">Disappointed</option>
+                    <option value="Beyond Repair">Beyond Repair</option>
+                </select>
+            </div>
+            <div class="inputrow">
+                <label>
+                    I recommend this person for additional review:
+                    <input type="checkbox" id="addReview" />
+                </label>
+            </div>
+            <div class="info">
+                <div class="desc">
+                    This form is currently a basic html form being used to test some Word document modification using Aspose Words. It's serving no greater purpose.
+                </div>
+            </div>
+        </div>
+        <div class="buttonbar">
+            <select id="saveAsFormat" style="display: inline;">
+                <option value="docx" selected="selected">Word Doc (docx)</option>
+                <option value="pdf">PDF</option>
+                <option value="png">Image</option>
+            </select>
+            @*<asp:Button id="save" Text="Save to Document" OnClick="saveData" Style="display: inline;" />*@
+            @*<asp:UpdatePanel id="panelSubmitted" UpdateMode="Conditional" style="text-align: right; margin-right: 15px;">
+                <contenttemplate>
+                    <asp:Literal id="saveStatus"></asp:Literal>
+                </contenttemplate>
+                <triggers>
+                    <asp:asyncpostbacktrigger controlid="save" eventname="Click" />
+                </triggers>
+            </asp:UpdatePanel>*@
+        </div>
+        <div class="buttonbar">
+            <button id="asyncSave" style="display: inline;">Save & Download</button>
+        </div>
+    </div>
+</body>
+</html>
